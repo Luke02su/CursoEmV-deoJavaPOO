@@ -1,9 +1,10 @@
 package com.mycompany.cursojavapooaulaexemplopratico;
+import java.util.Scanner;
 
 public class CursoJavaPOOAulaExemploPratico {
 
     public static void main(String[] args) {
-        
+        Scanner scan = new Scanner(System.in);
         ContaBanco cliente = new ContaBanco(0, "cc", "null", 0.00, false);
         
         cliente.status();
@@ -15,8 +16,9 @@ public class CursoJavaPOOAulaExemploPratico {
         cliente.setNumConta(2); cliente.setDono("Lucas");
         
         System.out.println();
-        
-        cliente.sacar(20.0);
+
+        double saque = scan.nextDouble();
+        cliente.sacar(saque);
         
         cliente.status();
   
