@@ -57,30 +57,33 @@ public class ContaBanco {
     
     public void abrirConta() {
         if(!this.status) {
-            System.out.println("--- CONTA ABERTA---");
-                if(this.tipo == "cc") {
-                    this.saldo += 50.0;
-                    System.out.println("Bonificação por ter criado uma conta " + this.tipo + ": R$50.00");
-                } if (this.tipo == "cp") {
-                    this.saldo += 150.0;
-                    System.out.println("Bonificação por ter criado uma conta " + this.tipo + ": R$150.00");
-                }
+            System.out.println("\n--- CONTA ABERTA---");
+            if("cc".equals(this.tipo)) { // compare string assim
+                this.saldo += 50.0;
+                System.out.println("Bonificação por ter criado uma conta corrente" + "(" + this.tipo + ")" + ": R$50.00");
+            } else if ("cp".equals(this.tipo)) {
+                this.saldo += 150.0;
+                System.out.println("Bonificação por ter criado uma conta poupanca" + "(" + this.tipo + ")"+ ": R$150.00");
+            }
         }
+        System.out.println();
         this.status = true;
-        System.out.println(" -------");
     }
     
     public void fecharConta() {
         if(this.status) {
-            if(this.saldo > 0) {
+            if(this.saldo >= 0) {
                 sacar(this.saldo);
+                System.out.println("--- CONTA FECHADA ---");
                 this.status = false;
             } else {
-                System.out.println("Erro: Você está em débito.");
+                System.out.println("Erro! Você está em débito no valor de R$" + this.saldo);
+               
             }
+        } else {
+            System.out.println("--- CONTA NÃO ABERTA ---");
         }
-        System.out.println("--- CONTA FECHADA ---");
-        this.status = false;
+        System.out.println();
     }
     
     public void depositar(double deposito) {
@@ -89,10 +92,8 @@ public class ContaBanco {
             this.saldo += deposito;
             System.out.println("Valor depositado: " + deposito);
             System.out.println("Valor atual do saldo: " + this.saldo);
-        } else {
-            System.out.println("Crie uma conta primeiro para depositar.");
         }
-        System.out.println(" -------\n");
+        System.out.println();
     }
     
     public void sacar(double saque) {
@@ -105,24 +106,24 @@ public class ContaBanco {
             } else {
                 System.out.println("ERRO: Saque acima do saldo.");
             }
-        } else {
-            System.out.println("Crie uma conta primeiro para sacar.");
-        }
-        System.out.println(" -------\n");
+        } 
+        System.out.println();
     }
     
     public void pagarMesal() {
         if(this.status) {
-            System.out.println("--- PAGADO MENSALIDADE ---");
-            if(this.tipo == "cc") {
+            System.out.println("--- MENSALIDADE PAGA ---");
+            if("cc".equals(this.tipo)) {
                 this.saldo -= 12.00; 
-            } else if (this.tipo == "cp") {
+                System.out.println("Mensalidade da conta corrente " + "(" + this.tipo + ")" + ": R$12.00");
+            } else if ("cp".equals(this.tipo)) {
                 this.saldo -= 20.00;
+                System.out.println("Mensalidade da conta poupança " + "(" + this.tipo + ")" + ": R$50.00");
             }
         } else {
             System.out.println("Crie uma conta para pagar mensalidade.");
         }
-        System.out.println(" -------");
+        System.out.println();
     }
     
     public void status() {
@@ -130,8 +131,8 @@ public class ContaBanco {
         System.out.println("Número da conta: " + this.numConta);
         System.out.println("Tipo: " + this.tipo);
         System.out.println("Dono: " + this.dono);
-        System.out.println("Saldo: " + this.saldo);
+        System.out.println("Saldo R$" + this.saldo);
         System.out.println("Aberta? " + this.status);
-        System.out.println(" -------\n");
+        System.out.println();
     }
 }

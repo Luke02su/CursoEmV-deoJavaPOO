@@ -10,8 +10,10 @@ public class CursoJavaPOOAulaExemploPratico {
         int opcao;
         
         do {
-            System.out.println("1. Abrir conta\n2. Depositar\n3. Sacar\n4. Pagar mensalidade\n5. Imprimir dados\n6. Fechar conta");
+            System.out.println("1. Abrir conta\n2. Depositar\n3. Sacar\n4. Pagar mensalidade\n5. Imprimir dados\n6. Fechar conta\n7. Sair\n");
+            System.out.printf("Escolha: ");
             opcao = scan.nextInt();
+            System.out.println();
             
             switch(opcao) {
                 case 1:
@@ -20,9 +22,10 @@ public class CursoJavaPOOAulaExemploPratico {
                         int numero = scan.nextInt();
                         cliente1.setNumConta(numero);
                         
-                        System.out.println("Tipo cc/cp:");
-                        String tipo = scan.nextLine();
                         scan.nextLine(); // consome a quebra de linha (evita com que pule a leitura do tipo)
+                        
+                        System.out.print("Tipo corrente (cc) ou poupança (cp): ");
+                        String tipo = scan.nextLine();
                         cliente1.setTipo(tipo);
                         
                         System.out.print("Dono: ");
@@ -34,32 +37,41 @@ public class CursoJavaPOOAulaExemploPratico {
                         cliente1.setSaldo(saldo);
                         
                         cliente1.abrirConta();
+                    } else {
+                        System.out.println("Feche esta conta para abrir uma nova.\n");
                     }
                     break;
+                    
                 case 2:
                     if(cliente1.isStatus()) {
                         System.out.print("Digite o valor a depositar: ");
                         double depositar = scan.nextDouble();
                         cliente1.depositar(depositar);
                     } else {
+                        System.out.println("Crie uma conta primeiro para depositar.\n");
                         opcao = 0;
                     }
                     break;
+                    
                 case 3:
                     if(cliente1.isStatus()) {
                         System.out.print("Digite o valor a sacar: ");
                         double sacar = scan.nextDouble();       
                         cliente1.sacar(sacar);
                     } else {
+                        System.out.println("Crie uma conta primeiro para sacar.\n");
                         opcao = 0;
                     }
                         break;
+                        
                 case 4:
                     cliente1.pagarMesal();
                     break;
+                    
                 case 5: 
                     cliente1.status();
                     break;
+                    
                 case 6:
                     cliente1.fecharConta();
                     break;
