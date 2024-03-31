@@ -12,18 +12,21 @@ public class CursoPOOJavaAula07 {
         L[3] = new Lutador("Dead Code", "Austrália", 28, 1.93f, 81.6f, 13, 0, 2);
         L[4] = new Lutador("UFOCobol", "Brasil", 37, 1.70f, 119.3f, 5, 4, 3);
         L[5] = new Lutador("Nerdaart", "EUA", 30, 1.81f, 105.7f, 12, 2, 4);
+     
+        Luta luta1 = new Luta(4);
+        Luta luta2 = new Luta(3);
         
- 
-        System.out.println("");
-        // L[3].setCategoria("Pesado"); não funciona pois é privado, para alterar é necessário alterar peso
-        L[3].setPeso(10f);
-        L[3].ganharLuta();
-        L[3].perderLuta();
-        L[3].empatarLuta();
+        luta1.marcarLuta(L[0], L[1]);
+        luta1.lutar();
+        L[0].status();
+        L[1].status();
+        
+        luta2.marcarLuta(L[2], L[3]);
+        luta2.lutar();
+        L[2].status();
         L[3].status();
         
+       //agregação: um objeto tem um outro objeto (necessidade uma outra classe)
         
-        
-        //agregação: um objeto tem um outro objeto (necessidade uma outra classe)
     }
 }
