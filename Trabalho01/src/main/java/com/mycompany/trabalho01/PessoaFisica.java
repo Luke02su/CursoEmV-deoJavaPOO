@@ -125,7 +125,7 @@ public class PessoaFisica extends Pessoa {
     
     public void aumentarSalario(double porcentagem) {
         System.out.println("--- AUMENTO DE SALÁRIO POR PORCENTAGEM DE PESSOA FÍSICA -----");
-        this.setSalario(this.getSalario() + (this.getSalario() * (porcentagem / 100)));
+        this.setSalario(this.getSalario() + (this.getSalario() * (porcentagem / 100.00)));
         System.out.println("Salário anual atual após aumento de " + porcentagem + "%: R$" + this.getSalario());
         System.out.println();
     }
@@ -138,35 +138,43 @@ public class PessoaFisica extends Pessoa {
     }
     
     private double calcularSalarioAnual() {
-        return this.getSalario() * 12;
+        System.out.println("----- CALCULADO O SALÁRIO ANUAL DE PESSOA FÍSICA -----");
+        return this.getSalario() * 12.00;
     }
     
     public void temQuePagar(double salarioAnual) {
+        System.out.println("----- VERIFICADO O VALOR A SER TRIBUTADO DE PESSOA FÍSICA -----");
         if(salarioAnual > 22847.88) {
             System.out.println("Terá de pagar Imposto de Renda (IR). Valor a ser pago: R$" + this.calcularIR(salarioAnual));
+            //this.setSalario(salarioAnual / 12.00); // sobreescrevendo a função this.calcularIR(salarioAnual), voltando ao salário 
         } else {
             System.out.println("Não terá que pagar Imposto de Renda (IR).");
+            this.setSalario(salarioAnual / 12.00); // sobreescrevendo a função this.calcularIR(salarioAnual)
         }
+        System.out.println();
     }
     
     private double calcularIR(double salarioAnual) {
-        this.setSalario(salarioAnual / 12);
-        
-        if(this.getSalario() >= 1903.99 && this.getSalario() <= 2826.65) {
-            return this.salario *=  0.075;
-        } else if(this.getSalario() >= 2826.66 && this.getSalario()<= 3751.05) {
-            return this.salario  *=  0.15;
-        } else if(this.getSalario() >= 3751.06 && this.getSalario() <= 4664.68){
-            return this.salario *= 0.225;
+        System.out.println("----- CALCULADO O IMPOSTO DE RENDA (IR) DE PESSOA FÍSICA -----\n");
+        this.setSalario(salarioAnual / 12.00);
+        if(salarioAnual / 12.00 >= 1903.99 && salarioAnual / 12.00 <= 2826.65) {
+            return salarioAnual *  0.075;
+        } else if(salarioAnual / 12.00 >= 2826.66 && salarioAnual / 12.00 <= 3751.05) {
+            return salarioAnual  *  0.15;
+        } else if(salarioAnual / 12.00 >= 3751.06 && salarioAnual / 12.00 <= 4664.68){
+            return salarioAnual * 0.225;
         } else {
-            return this.salario *= 0.275;
-        }
+            return salarioAnual * 0.275;
+        }        
     }
     
     public void imprimePrestacaoIR(int parcelas, double valorImposto) {
-       // if()
-//        imprimePrestacaoIR(pestacao, valorImposto): Recebe a quantidade de parcelas e o valor do 
-//imposto e imprime o valor de cada parcela. Lembrando que o número máximo de parcelas é 8 e o 
-//mínimo é 2. 
+        System.out.println("----- PRESTAÇÃO DE IMPOSTO DE RENDA (IR) DE PESSOA FÍSICA -----");
+        if(parcelas >= 2 && parcelas <= 8) {
+            System.out.println(parcelas + " parcelas. Valor de cada parcela R$: " + valorImposto / parcelas);
+        } else {
+            System.out.println("Parcelas inválidas. Quantidade mínima: 2. Quantidade máximo: 8.");
+        }
+        System.out.println();
     }
 }
