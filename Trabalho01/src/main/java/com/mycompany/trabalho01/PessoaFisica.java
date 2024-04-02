@@ -152,14 +152,14 @@ public class PessoaFisica extends Pessoa {
     private double calcularIR(double salarioAnual) {
         this.setSalario(salarioAnual / 12);
         
-        if(this.getSalario() >= 1903.99 && salarioMensal <= 2826.65) {
-            return salarioMensal  *=  0.075;
-        } else if(salarioMensal >= 2826.66 && salarioMensal <= 3751.05) {
-            return salarioMensal  *=  0.15;
-        } else if(salarioMensal  >= 3751.06 && salarioMensal <= 4664.68){
-            return salarioMensal  *= 0.225;
+        if(this.getSalario() >= 1903.99 && this.getSalario() <= 2826.65) {
+            return this.salario *=  0.075;
+        } else if(this.getSalario() >= 2826.66 && this.getSalario()<= 3751.05) {
+            return this.salario  *=  0.15;
+        } else if(this.getSalario() >= 3751.06 && this.getSalario() <= 4664.68){
+            return this.salario *= 0.225;
         } else {
-            return salarioMensal  *= 0.275;
+            return this.salario *= 0.275;
         }
     }
     
