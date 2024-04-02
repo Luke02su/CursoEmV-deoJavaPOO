@@ -144,23 +144,21 @@ public class PessoaFisica extends Pessoa {
     
     public void temQuePagar(double salarioAnual) {
         System.out.println("----- VERIFICADO O VALOR A SER TRIBUTADO DE PESSOA FÍSICA -----");
+        this.setSalario(salarioAnual / 12.00);
         if(salarioAnual > 22847.88) {
-            System.out.println("Terá de pagar Imposto de Renda (IR). Valor a ser pago: R$" + this.calcularIR(salarioAnual));
-            //this.setSalario(salarioAnual / 12.00); // sobreescrevendo a função this.calcularIR(salarioAnual), voltando ao salário 
+            System.out.println("Terá de pagar Imposto de Renda (IR). Valor a ser pago ao final do ano: R$" + this.calcularIR(salarioAnual) + ". Valor mensal agregado a cada mês: R$" + this.calcularIR(salarioAnual)/12);
         } else {
             System.out.println("Não terá que pagar Imposto de Renda (IR).");
-            this.setSalario(salarioAnual / 12.00); // sobreescrevendo a função this.calcularIR(salarioAnual)
         }
         System.out.println();
     }
     
     private double calcularIR(double salarioAnual) {
         System.out.println("----- CALCULADO O IMPOSTO DE RENDA (IR) DE PESSOA FÍSICA -----\n");
-        this.setSalario(salarioAnual / 12.00);
         if(salarioAnual / 12.00 >= 1903.99 && salarioAnual / 12.00 <= 2826.65) {
-            return salarioAnual *  0.075;
+            return salarioAnual * 0.075;
         } else if(salarioAnual / 12.00 >= 2826.66 && salarioAnual / 12.00 <= 3751.05) {
-            return salarioAnual  *  0.15;
+            return salarioAnual * 0.15;
         } else if(salarioAnual / 12.00 >= 3751.06 && salarioAnual / 12.00 <= 4664.68){
             return salarioAnual * 0.225;
         } else {
