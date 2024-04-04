@@ -4,11 +4,15 @@ public class Aluno extends Pessoa {
     private int matricula;
     private String curso;
     
-    public Aluno(String nome, int idade, char sexo, int matricula, String curso) {
-        super(nome, idade, sexo);
-        this.setMatricula(matricula);
-        this.setCurso(curso);
+    public Aluno() {
+        
     }
+    
+//    public Aluno(String nome, int idade, char sexo, int matricula, String curso) {
+//        super(nome, idade, sexo);
+//        this.setMatricula(matricula);
+//        this.setCurso(curso);
+//    }
     
     public void cancelarMatricula() {
         this.setMatricula(0);

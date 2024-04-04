@@ -4,12 +4,16 @@ public class Pessoa {
     private String nome;
     private int idade;
     private char sexo;
-
-    public Pessoa(String nome, int idade, char sexo) {
-        this.setNome(nome);
-        this.setIdade(idade);
-        this.setSexo(sexo);
+    
+    public Pessoa() {
+        
     }
+
+//    public Pessoa(String nome, int idade, char sexo) {
+//        this.setNome(nome);
+//        this.setIdade(idade);
+//        this.setSexo(sexo);
+//    }
     
     public void fazerAniv() {
         this.setIdade(this.getIdade() + 1);
@@ -38,6 +42,9 @@ public class Pessoa {
     public void setSexo(char sexo) {
         this.sexo = sexo;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Pessoa{" + "nome=" + nome + ", idade=" + idade + ", sexo=" + sexo + '}';
+    }
 }
