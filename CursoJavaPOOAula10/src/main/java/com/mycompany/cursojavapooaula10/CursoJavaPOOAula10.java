@@ -27,9 +27,13 @@ public class CursoJavaPOOAula10 {
 //        p2.mudarTrabalho();
 //        p4.cancelarMatr();
        
-        System.out.println(p1);
-        System.out.println(p2);
-        System.out.println(p3);
-        System.out.println(p4);
+        System.out.println(p1.toString());
+        System.out.println(p2.toString());
+        System.out.println(p3.toString());
+        System.out.println(p4.toString());
+        
+        System.out.println(p4.isTrabalhando());
+        p4.mudarTrabalho();
+        System.out.println(p4.isTrabalhando());
     }
 }
