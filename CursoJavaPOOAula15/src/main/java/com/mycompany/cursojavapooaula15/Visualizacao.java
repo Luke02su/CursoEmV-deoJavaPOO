@@ -11,6 +11,8 @@ public class Visualizacao {
     public Visualizacao(Gafanhoto espectador, Video filme) {
         this.setEspectador(espectador);
         this.setFilme(filme);
+        this.espectador.setTotAssistidos(this.espectador.getTotAssistido() + 1);
+        this.filme.setViews(this.filmes.getViews() + 1);
     }
 
     @Override
