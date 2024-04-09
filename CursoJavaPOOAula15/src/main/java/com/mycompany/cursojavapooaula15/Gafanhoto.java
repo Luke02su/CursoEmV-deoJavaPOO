@@ -1,31 +1,52 @@
 package com.mycompany.cursojavapooaula15;
 
 public class Gafanhoto extends Pessoa {
-    private boolean login;
-    private int totAssistiado;
+    private String login;
+    private int totAssistido;
+
+    public Gafanhoto() {
+    
+    };
+    
+    public Gafanhoto(String nome, int idade, char sexo, int experiencia, String login, int totAssistido) {
+        super(nome, idade, sexo, experiencia);
+        this.setLogin(login);
+        this.setTotAssistido(totAssistido);
+    }
     
     @Override
     protected void ganharExp(int experiencia) {
+        System.out.println("--- ADQUIRIU MAIS EXPERIÊNCIA ---");
         super.setExperiencia(this.getExperiencia() + experiencia);
+        System.out.println("Experiência adquirida: " + experiencia + "\nExperiência totalizada: " + this.getExperiencia());
+        System.out.println();
     }
     
     public void viuMaisUm() {
-        this.setTotAssistiado(this.getTotAssistiado() + 1);
+        System.out.println("--- VIU MAIS UM VÍDEO ---");
+        this.setTotAssistido(this.getTotAssistido() + 1);
+        System.out.println("Total de vídeos assistidos: " + this.getTotAssistido());
+        System.out.println();
     }
 
-    public boolean isLogin() {
+    @Override
+    public String toString() {
+        return "Gafanhoto{" + super.toString() + "login=" + login + ", totAssistido=" + totAssistido + '}';
+    }
+
+    public String getLogin() {
         return login;
     }
 
-    public void setLogin(boolean login) {
+    public void setLogin(String login) {
         this.login = login;
     }
 
-    public int getTotAssistiado() {
-        return totAssistiado;
+    public int getTotAssistido() {
+        return totAssistido;
     }
 
-    public void setTotAssistiado(int totAssistiado) {
-        this.totAssistiado = totAssistiado;
+    public void setTotAssistido(int totAssistiado) {
+        this.totAssistido = totAssistiado;
     }
 }
