@@ -1,3 +1,3 @@
 # CursoEmV-deoJavaPOO
-Exercícios do Curso em Vídeo de Java POO.
+Exercícios do Curso em Vídeo de Java POO (básico).
 Finalizado.
