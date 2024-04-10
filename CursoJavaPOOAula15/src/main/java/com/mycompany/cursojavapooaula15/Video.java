@@ -11,12 +11,12 @@ public class Video implements AcoesVideo {
         
     };
 
-    public Video(String titulo, int avaliacao, int views, int curtidas, boolean reproduzindo) {
+    public Video(String titulo) {
         this.setTitulo(titulo);
-        this.setAvaliacao(avaliacao);
-        this.setViews(views);
-        this.setCurtidas(curtidas);
-        this.setReproduzindo(reproduzindo);
+        this.setAvaliacao(1);
+        this.setViews(0);
+        this.setCurtidas(0);
+        this.setReproduzindo(false);
     }
     
     @Override
@@ -45,23 +45,27 @@ public class Video implements AcoesVideo {
     }
    
     public String getTitulo() {
-        return titulo;
+        return this.titulo;
     }
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
-    public int getAvaliacao() {
-        return avaliacao;
+    public double getAvaliacao() {
+        return this.avaliacao;
     }
 
     public void setAvaliacao(int avaliacao) {
-        this.avaliacao = avaliacao;
+        if(this.getViews() > 0) {
+            int nova;
+            nova = (int)((this.avaliacao + avaliacao)/this.getViews()); // media baseado na avaliação antiga e atual do vídeo e na sua quantidade de views
+            this.avaliacao = nova;
+        }
     }
 
     public int getViews() {
-        return views;
+        return this.views;
     }
 
     public void setViews(int views) {
@@ -69,7 +73,7 @@ public class Video implements AcoesVideo {
     }
 
     public int getCurtidas() {
-        return curtidas;
+        return this.curtidas;
     }
 
     public void setCurtidas(int curtidas) {
@@ -77,7 +81,7 @@ public class Video implements AcoesVideo {
     }
 
     public boolean isReproduzindo() {
-        return reproduzindo;
+        return this.reproduzindo;
     }
 
     public void setReproduzindo(boolean reproduzindo) {

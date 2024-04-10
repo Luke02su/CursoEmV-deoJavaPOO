@@ -10,11 +10,11 @@ public abstract class Pessoa {
     
     };
 
-    public Pessoa(String nome, int idade, char sexo, int experiencia) {
+    public Pessoa(String nome, int idade, char sexo) {
         this.setNome(nome);
         this.setIdade(idade);
         this.setSexo(sexo);
-        this.setExperiencia(experiencia);
+        this.setExperiencia(0);
     }
       
     protected abstract void ganharExp(int experiencia);
@@ -25,7 +25,7 @@ public abstract class Pessoa {
     }
   
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public void setNome(String nome) {
@@ -33,7 +33,7 @@ public abstract class Pessoa {
     }
 
     public int getIdade() {
-        return idade;
+        return this.idade;
     }
 
     public void setIdade(int idade) {
@@ -41,7 +41,7 @@ public abstract class Pessoa {
     }
 
     public char getSexo() {
-        return sexo;
+        return this.sexo;
     }
 
     public void setSexo(char sexo) {
@@ -49,7 +49,7 @@ public abstract class Pessoa {
     }
 
     public int getExperiencia() {
-        return experiencia;
+        return this.experiencia;
     }
 
     public void setExperiencia(int experiencia) {

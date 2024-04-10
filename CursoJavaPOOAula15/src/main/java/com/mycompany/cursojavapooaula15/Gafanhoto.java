@@ -8,10 +8,10 @@ public class Gafanhoto extends Pessoa {
     
     };
     
-    public Gafanhoto(String nome, int idade, char sexo, int experiencia, String login, int totAssistido) {
-        super(nome, idade, sexo, experiencia);
+    public Gafanhoto(String nome, int idade, char sexo, String login) {
+        super(nome, idade, sexo);
         this.setLogin(login);
-        this.setTotAssistido(totAssistido);
+        this.setTotAssistido(0);
     }
     
     @Override
@@ -35,7 +35,7 @@ public class Gafanhoto extends Pessoa {
     }
 
     public String getLogin() {
-        return login;
+        return this.login;
     }
 
     public void setLogin(String login) {
@@ -43,7 +43,7 @@ public class Gafanhoto extends Pessoa {
     }
 
     public int getTotAssistido() {
-        return totAssistido;
+        return this.totAssistido;
     }
 
     public void setTotAssistido(int totAssistiado) {
